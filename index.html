@@ -57,9 +57,9 @@
                         </span><input class="first-placeholder" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <div class="background-chat">
-                        <ul class="avatars-box " v-for="names in contacts">
-                            <li><img class="avatars" :src="names.avatar" alt="" />
-                                {{names.name}} <hr>
+                        <ul class="avatars-box " v-for="(contact, index)  in contacts">
+                            <li @click="getMessages(index)"><img class="avatars" :src="contact.avatar" alt="" />
+                                {{contact.name}} <hr>
                             </li>
                         </ul>
                     </div>
@@ -67,12 +67,11 @@
                 </div>
                 <div class="col-8">
                     <div class="chat d-flex justify-content-between">
-                        <div class="friend">
-                            <div v-for="(date, text, status) in contacts.messages" class="f-message">{{text.messages}}</div>
-                        </div>
-                        <div class="my-message">
-                            <div v-for="(date, text, status) in contacts.messages" class="m-message">{{text.messages}}</div>
-                        </div>
+                       <ul>
+                           <li v-for="message in messages">
+                               {{message.text}}
+                           </li>
+                       </ul>
                     </div>
                     <div class="margin">
                         <i class="smile far fa-smile"></i>

@@ -87,6 +87,27 @@ const app = new Vue ({
                     }
                 ],
             },
-        ]
+        ],
+        messages: []
+    },
+        methods: {
+            // ho creato una funzione con la quale attraverso l'indice clickando sull'icona
+            // dell'utente mi stampa i messages inerenti all'utente con quel valore di indice 
+        getMessages(index) { //questo index nell'html è nel v-for, solo in questo modo riesco 
+            // a rendere dinamico il click
+            //console.log(index)
+            // ho assegnato all'indice dei contatti una variabile contact
+            // quindi contact è uguale all'indice di contacts
+            let contact = this.contacts[index];
+            // adesso con questo this.contacts[index] sono all'interno dell'array contacts
+            //console.log(contact.messages);
+            // adesso che sono all'interno dell'array contacts con un'altra variabile vado a prendere
+            // il valore messages che è dentro contacts
+            let messages = contact.messages; //this.contacts[index].messages
+            // adesso associo l'array contacts.messages all'array vuoto in modo da permettermi
+            // di vedere solo i messaggi all'interno del contacts che ho cliccato in quel momento
+            this.messages = messages; //this.contacts[index].messages = messages
+            //console.log(this.messages)
+        },
     }
 })
