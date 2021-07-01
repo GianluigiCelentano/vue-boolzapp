@@ -98,13 +98,11 @@ hr {
 }
 .my-message {
     background-color: #DCF8C0;
-    height: 25px;
     margin-right: 15px;
     border-radius: 10px;
 }
 .friend {
     background-color: #ffffff;
-    height: 25px;
     margin-left: 15px;
     border-radius: 10px;
 }
