@@ -107,3 +107,7 @@ hr {
     width: calc(100% / 2);
     float: left;
 }
+.date {
+    font-size: 10px;
+    color: darkgreen
+}

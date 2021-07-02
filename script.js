@@ -89,20 +89,39 @@ const app = new Vue ({
             },
         ],
         messages: [],
-        addMessage: ""
+        addMessage: "",
+        currentContact:0,
+        currentContactAns:0
     },
-        methods: {
+    methods: {
         getMessages(index) {
             let contact = this.contacts[index];
             let messages = contact.messages;
             this.messages = messages;
+            this.currentContact = index
+            this.currentContactAns = index
+            // this.messages = this.contacts[index].messages
         },
         addThing: function () {
-            this.messages.forEach(element => {
-            let newMessage = element.text
-            this.newMessage.push(this.addMessage)
+            this.contacts[this.currentContact].messages.push ({
+                date: this.getCurrentDateTime(),
+                text: this.addMessage,
+                status: "sent",
+            })
             this.addMessage = ''
-            });
-        }
+            if (this.contacts[this.currentContact].messages.push) {
+                this.contacts[this.currentContactAns].messages.push ({
+                    date: this.getCurrentDateTime(),
+                    text: "ok",
+                    status: "received",
+                })
+            }
+        },
+        getCurrentDateTime: function () {
+              
+            const dateTimeNow = dayjs();
+            return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
+            
+        },
     }
 })
