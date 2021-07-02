@@ -56,7 +56,7 @@
             <span class="search-icon-box">
                 <i class="search fas fa-search"></i>
             </span>
-            <input class="first-placeholder" type="text" placeholder="Cerca o inizia una nuova chat">
+            <input class="first-placeholder" type="text" @click="searchRightName" placeholder="Cerca o inizia una nuova chat">
         </div>
         <div class="background-chat">
             <ul class="avatars-box " v-for="(contact, index)  in contacts">

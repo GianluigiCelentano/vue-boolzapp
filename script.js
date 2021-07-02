@@ -118,10 +118,14 @@ const app = new Vue ({
             }
         },
         getCurrentDateTime: function () {
-              
             const dateTimeNow = dayjs();
             return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
-            
         },
+        searchRightName: function () { 
+            this.contacts[name].filter ((filter)=>{
+            if(filter.name === "Michele") {
+                return true
+            }
+        })}
     }
 })
