@@ -11,80 +11,89 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div class="big-container" id="app">
+<div class="big-container" id="app">
 
-        <div class="container">
-            <div class="row utilities-container">
-                <div class="col-2">
-                    <div class="me">
-                        <img class="avatars" src="img/avatar_io.jpg" alt="">
-                        <span class="active-not-1">Gianluigi</span>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="utilities">
-                        <i class="me fas fa-sync"></i>
-                        <i class="me fas fa-comment"></i>
-                        <i class="me fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="me d-flex justify-content-between">
-                        <div>
-                            <img class="avatars" src="img/avatar_1.jpg" alt="">
-                            <span class="active-not-1">Michele</span>
-                        </div>
-                        <div class="avatars-box">
-                            <i class="me fas fa-search"></i>
-                            <i class="me fas fa-paperclip"></i>
-                            <i class="me fas fa-ellipsis-v"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="receive-notice text-center">
-                        <div class="active-not-1">
-                            <span><i class="bell fas fa-bell-slash"></i></span> 
-                            Ricevi notifiche di nuovi messaggi
-                        </div> 
-                        <div class="active-not-2">Attiva notifiche</div>
-                    </div>
-                    <div class="first-placeholder-box">
-                        <span class="search-icon-box">
-                            <i class="search fas fa-search"></i>
-                        </span><input class="first-placeholder" type="text" placeholder="Cerca o inizia una nuova chat">
-                    </div>
-                    <div class="background-chat">
-                        <ul class="avatars-box " v-for="(contact, index)  in contacts">
-                            <li @click="getMessages(index)"><img class="avatars" :src="contact.avatar" alt="" />
-                                {{contact.name}} <hr>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                </div>
-                <div class="col-8">
-                    <div class="chat d-flex justify-content-between">
-                            <div v-for="message in messages">
-                                <div v-if="message.status === 'received'" class="float-right my-message">{{message.text}}</div>
-                                <div v-if="message.status === 'sent'" class="float-left friend">{{message.text}}</div>
-                           </div>
-                    </div>
-                    <div class="margin">
-                        <i class="smile far fa-smile"></i>
-                        <input class="me second-placeholder" type="text" placeholder="Scrivi il tuo messaggio...">
-                        <i class="mic fas fa-microphone-alt"></i>
-                    </div>
-                </div>
-            </div>
-            
-        
+<div class="container">
+<div class="row utilities-container">
+    <div class="col-2">
+        <div class="me">
+            <img class="avatars" src="img/avatar_io.jpg" alt="">
+            <span class="active-not-1">Gianluigi</span>
         </div>
-
     </div>
+    <div class="col-2">
+        <div class="utilities">
+            <i class="me fas fa-sync"></i>
+            <i class="me fas fa-comment"></i>
+            <i class="me fas fa-ellipsis-v"></i>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="me d-flex justify-content-between">
+            <div>
+                <img class="avatars" src="img/avatar_1.jpg" alt="">
+                <span class="active-not-1">Michele</span>
+            </div>
+            <div class="avatars-box">
+                <i class="me fas fa-search"></i>
+                <i class="me fas fa-paperclip"></i>
+                <i class="me fas fa-ellipsis-v"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <div class="receive-notice text-center">
+            <div class="active-not-1">
+                <span><i class="bell fas fa-bell-slash"></i></span> 
+                Ricevi notifiche di nuovi messaggi
+            </div> 
+            <div class="active-not-2">Attiva notifiche</div>
+        </div>
+        <div class="first-placeholder-box">
+            <span class="search-icon-box">
+                <i class="search fas fa-search"></i>
+            </span>
+            <input class="first-placeholder" type="text" placeholder="Cerca o inizia una nuova chat">
+        </div>
+        <div class="background-chat">
+            <ul class="avatars-box " v-for="(contact, index)  in contacts">
+                <li @click="getMessages(index)"><img class="avatars" :src="contact.avatar" alt="" />
+                    {{contact.name}} <hr>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="col-8">
+        <div class="chat">
+                <div v-for="message in messages">
+                    <div v-if="message.status === 'received'" 
+                        class="my-message text-center">{{message.text}}
+                    </div>
+                    <div v-if="message.status === 'sent'" 
+                        class="friend text-center">{{message.text}}
+                    </div>
+                </div>
+        </div>
+        <div class="margin">
+            <i class="smile far fa-smile"></i>
+            <input v-model="addMessage" 
+                @keyup.enter=addThing()
+                class="me second-placeholder" 
+                type="text" 
+                placeholder="Scrivi il tuo messaggio...">
+            <i class="mic fas fa-microphone-alt"></i>
+        </div>
+    </div>
+</div>
 
-    <script src="script.js"></script>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
